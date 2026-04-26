@@ -123,6 +123,19 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Scroll suave a inicio
+    // ========== FUNCIÓN PARA EL BOTÓN INICIO ==========
+    const inicioLink = document.querySelector('a[href="#"]');
+    if (inicioLink) {
+        inicioLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
     
     console.log('✨ Pachytha Impresiones - Versión simplificada cargada');
 });
