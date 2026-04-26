@@ -1,0 +1,511 @@
+/* css/styles.css - Versión Simplificada con Productos Grandes */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    background: #faf8f5;
+    color: #1a1a2e;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
+
+/* Header */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #c44569, #e06c5f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.logo p {
+    font-size: 0.75rem;
+    color: #6c6c7a;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #2d2d3a;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #c44569;
+}
+
+/* WhatsApp flotante */
+.whatsapp-float {
+    position: fixed;
+    bottom: 1.8rem;
+    right: 1.8rem;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
+    z-index: 99;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+/* Carrusel principal */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 35px -10px rgba(0,0,0,0.1);
+}
+
+.carousel-slides {
+    display: flex;
+    transition: transform 1s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    position: relative;
+    background: #f5f0eb; /* Color de fondo por si la imagen no llena */
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 500px;
+    object-fit: contain;  /* Cambia cover por contain */
+    background: #f5f0eb;  /* Color de fondo para bordes */
+    display: block;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    padding: 3rem 2rem 1.5rem;
+    text-align: center;
+}
+
+.carousel-caption h3 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.9);
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: all 0.2s;
+    z-index: 10;
+}
+
+.carousel-btn.prev { left: 1rem; }
+.carousel-btn.next { right: 1rem; }
+
+.carousel-dots {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+}
+
+.dot.active {
+    background: white;
+    width: 24px;
+    border-radius: 5px;
+}
+
+/* Productos grandes (estructura principal) */
+.producto-grande {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    background: white;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.producto-imagen {
+    width: 100%;
+}
+
+.producto-info h3 {
+    font-size: 1.8rem;
+    color: #c44569;
+    margin-bottom: 1rem;
+}
+
+.producto-info p {
+    color: #5a5a6e;
+    margin-bottom: 1.5rem;
+}
+
+/* Mini carruseles */
+.mini-carousel {
+    position: relative;
+    width: 100%;
+    height: 320px;  /* Altura fija pero suficiente */
+    overflow: hidden;
+    border-radius: 1rem;
+    background: #f0e6dc;  /* Color cálido de fondo */
+}
+
+.mini-carousel-inner {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    height: 100%;
+}
+
+.mini-slide {
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mini-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;  /* Clave: muestra toda la imagen */
+    background: #f5ede3;  /* Color de fondo para bordes */
+}
+
+.mini-prev, .mini-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    z-index: 10;
+}
+
+.mini-prev { left: 0.5rem; }
+.mini-next { right: 0.5rem; }
+
+.mini-dots {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.3rem;
+    z-index: 10;
+}
+
+.mini-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.6);
+    cursor: pointer;
+}
+
+.mini-dot.active {
+    background: white;
+    width: 14px;
+    border-radius: 3px;
+}
+
+/* Tabla de precios */
+.tabla-precios {
+    background: #fef9f0;
+    border-radius: 1rem;
+    overflow: hidden;
+    margin: 1.5rem 0;
+}
+
+.tabla-fila {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    border-bottom: 1px solid #ffe0cc;
+}
+
+.tabla-fila:last-child {
+    border-bottom: none;
+}
+
+.tabla-header, .tabla-celda {
+    padding: 0.8rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.tabla-header {
+    background: #c44569;
+    color: white;
+    font-weight: 600;
+}
+
+.tabla-celda {
+    background: white;
+}
+
+.opciones-extras {
+    background: #f0e6dc;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: 1rem 0;
+}
+
+.opciones-extras ul {
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+/* Servicios grid */
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.servicio-card {
+    background: white;
+    border-radius: 1.2rem;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+}
+
+.servicio-card h3 {
+    color: #c44569;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.servicio-card ul {
+    list-style: none;
+}
+
+.servicio-card li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f0e6dc;
+    font-size: 0.9rem;
+}
+
+/* Contacto */
+.contacto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.contacto-card {
+    background: white;
+    border-radius: 1.2rem;
+    padding: 1.8rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+}
+
+.contacto-card h3 {
+    color: #c44569;
+    margin-bottom: 1rem;
+}
+
+.destacado {
+    text-align: center;
+    background: linear-gradient(135deg, #fff2e6, #fffaef);
+    padding: 1.2rem;
+    border-radius: 1.5rem;
+    color: #4a4a60;
+}
+
+/* Botones */
+.btn-wsp {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    padding: 0.8rem 1.8rem;
+    border-radius: 40px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: 600;
+    transition: transform 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-wsp:hover {
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    background: #1a1a2e;
+    color: #b8b8c8;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 2rem;
+}
+
+footer a {
+    color: #ffbe90;
+    text-decoration: none;
+}
+
+.footer-small {
+    font-size: 0.7rem;
+    margin-top: 1rem;
+    opacity: 0.7;
+}
+
+/* Secciones */
+section {
+    padding: 3rem 1rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #c44569;
+    font-weight: 600;
+}
+
+.section-title::after {
+    content: '';
+    width: 70px;
+    height: 3px;
+    background: linear-gradient(90deg, #c44569, #e06c5f);
+    display: block;
+    margin: 0.7rem auto 0;
+    border-radius: 3px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .producto-grande {
+        grid-template-columns: 1fr;
+    }
+    
+    .mini-carousel {
+        height: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .nav-links {
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .logo {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .carousel-slide img {
+        height: 300px;
+    }
+    
+    .carousel-caption h3 {
+        font-size: 1.3rem;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .tabla-fila {
+        grid-template-columns: 1fr 1fr 1fr;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-slide img {
+        height: 220px;
+    }
+    
+    .mini-carousel {
+        height: 220px;
+    }
+    
+    .producto-info h3 {
+        font-size: 1.4rem;
+    }
+}
