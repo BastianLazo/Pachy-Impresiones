@@ -284,28 +284,24 @@ nav {
     border-radius: 3px;
 }
 
-/* Tabla de precios */
+/* ========== TABLA DE PRECIOS (Responsive) ========== */
 .tabla-precios {
     background: #fef9f0;
     border-radius: 1rem;
     overflow: hidden;
-    margin: 1.5rem 0;
+    width: 100%;
+    margin: 1rem 0;
 }
 
 .tabla-fila {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    border-bottom: 1px solid #ffe0cc;
-}
-
-.tabla-fila:last-child {
-    border-bottom: none;
+    display: table-row;
 }
 
 .tabla-header, .tabla-celda {
-    padding: 0.8rem;
+    display: table-cell;
+    padding: 0.8rem 1rem;
     text-align: center;
-    font-size: 0.9rem;
+    border-bottom: 1px solid #ffe0cc;
 }
 
 .tabla-header {
@@ -318,16 +314,50 @@ nav {
     background: white;
 }
 
-.opciones-extras {
-    background: #f0e6dc;
-    padding: 1rem;
-    border-radius: 1rem;
-    margin: 1rem 0;
+.tabla-celda strong {
+    color: #c44569;
 }
 
-.opciones-extras ul {
-    margin-left: 1.5rem;
-    margin-top: 0.5rem;
+/* ===== VERSIÓN MÓVIL ===== */
+@media (max-width: 768px) {
+    .tabla-precios {
+        display: block;
+    }
+    
+    .tabla-fila {
+        display: block;
+        margin-bottom: 1rem;
+        border: 1px solid #ffe0cc;
+        border-radius: 0.8rem;
+        overflow: hidden;
+    }
+    
+    /* Ocultar el header en móvil */
+    .tabla-header {
+        display: none;
+    }
+    
+    /* Convertir cada celda en fila con etiqueta */
+    .tabla-celda {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.8rem 1rem;
+        border-bottom: 1px solid #ffe0cc;
+        text-align: left;
+    }
+    
+    .tabla-celda:last-child {
+        border-bottom: none;
+    }
+    
+    /* Añadir la etiqueta antes del valor */
+    .tabla-celda::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #c44569;
+        margin-right: 1rem;
+    }
 }
 
 /* Servicios grid */
